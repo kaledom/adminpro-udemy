@@ -15,6 +15,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut
         ProgressComponent,
         Graficas1Component,
         IncrementadorComponent,
-        GraficoDonutComponent
+        GraficoDonutComponent,
+        AccountSettingsComponent
     ],
     exports: [
         PagesComponent,
