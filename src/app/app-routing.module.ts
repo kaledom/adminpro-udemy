@@ -1,22 +1,27 @@
+// Angular
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
-import { RegisterComponent } from './login/register.component';
-import { PagesModule } from './pages/pages.module';
+// Módulos creados
+import { PagesRoutingModule } from './pages/pages.routing';
+import { AuthRoutingModule } from './auth/auth.routing';
+// Componentes creados
+import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  // { path: 'pages', loadChildren: () => import( `./pages/pages.module` ).then( m => m.PagesModule ) },
+
+  // path: '/dashboard' PagesRouting
+  // path: '/auth' AuthRouting
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: NopagefoundComponent }
+
 ];
 
 @NgModule({
   imports: [
-    PagesModule,
-    RouterModule.forRoot( routes, { useHash: true } )
+    RouterModule.forRoot( routes ),
+    PagesRoutingModule,
+    AuthRoutingModule
   ],
   exports: [RouterModule]
 })

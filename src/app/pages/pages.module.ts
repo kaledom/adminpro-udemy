@@ -1,48 +1,42 @@
+// Angular
 import { NgModule } from '@angular/core';
-import { PagesRoutingModule } from './pages-routing.module';
-
-import { SharedModule } from '../shared/shared.module';
-
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-// ng2-charts
-import { ChartsModule } from 'ng2-charts';
-
-import { PagesComponent } from './pages.component';
-
+// Modulos creados
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
+// ComponentesCreados
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
-import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
-import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut.component';
+import { PagesComponent } from './pages.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
 
+
 @NgModule({
     declarations: [
-        PagesComponent,
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
-        IncrementadorComponent,
-        GraficoDonutComponent,
+        PagesComponent,
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent
     ],
     exports: [
-        PagesComponent,
         DashboardComponent,
         ProgressComponent,
-        Graficas1Component
+        Graficas1Component,
+        PagesComponent
     ],
     imports: [
         SharedModule,
-        PagesRoutingModule,
         FormsModule,
-        ChartsModule
+        ComponentsModule,
+        RouterModule
     ]
 })
 

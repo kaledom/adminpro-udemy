@@ -11,6 +11,7 @@ export class IncrementadorComponent implements OnInit {
   @ViewChild('txtProgress') txtProgress: ElementRef;  
 
   @Input() leyenda: string = 'Leyenda';
+  @Input() btnClass: string = 'btn-primary';
   @Input() porcentaje: number = 50;
 
   @Output() cambioValor: EventEmitter<number> = new EventEmitter();
@@ -19,17 +20,13 @@ export class IncrementadorComponent implements OnInit {
     // console.log('Leyenda:', this.leyenda);
     // console.log('Porcentaje:', this.porcentaje);
   }
-
   ngOnInit(): void {
-    // console.log('Leyenda:', this.leyenda);
-    // console.log('Porcentaje:', this.porcentaje);
+    this.btnClass = `btn ${ this.btnClass }`;
   }
 
   onChange( newValue: number) {
-   
 
     // let elemHTML: any = document.getElementsByName('porcentaje')[0];
-    
     // console.log(this.txtProgress);
 
     if ( newValue >= 100 ) {

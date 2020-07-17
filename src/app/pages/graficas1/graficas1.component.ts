@@ -22,25 +22,37 @@ export class Graficas1Component implements OnInit {
       'labels': ['Con Frijoles', 'Con Natilla', 'Con tocino'],
       'data':  [24, 30, 46],
       'type': 'doughnut',
-      'leyenda': 'El pan se come con'
+      'leyenda': 'El pan se come con',
+      'colors': [
+        { backgroundColor: [ '#6857E6', '#009FEE', '#F02059' ] }
+      ]
     },
     'grafico2': {
       'labels': ['Hombres', 'Mujeres'],
       'data':  [4500, 6000],
       'type': 'doughnut',
-      'leyenda': 'Entrevistados'
+      'leyenda': 'Entrevistados',
+      'colors': [
+        { backgroundColor: [ '#6857E6', '#009FEE', '#F02059' ] }
+      ]
     },
     'grafico3': {
       'labels': ['Si', 'No'],
       'data':  [95, 5],
       'type': 'doughnut',
-      'leyenda': '¿Le dan gases los frijoles?'
+      'leyenda': '¿Le dan gases los frijoles?',
+      'colors': [
+        { backgroundColor: [ '#6857E6', '#009FEE', '#F02059' ] }
+      ]
     },
     'grafico4': {
       'labels': ['No', 'Si'],
       'data':  [85, 15],
       'type': 'doughnut',
-      'leyenda': '¿Le importa que le den gases?'
+      'leyenda': '¿Le importa que le den gases?',
+      'colors': [
+        { backgroundColor: [ '#6857E6', '#009FEE', '#F02059' ] }
+      ]
     },
   };
 

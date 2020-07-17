@@ -6,15 +6,12 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-
 
 @NgModule({
     declarations: [
         HeaderComponent,
         SidebarComponent,
-        BreadcrumbsComponent,
-        NopagefoundComponent
+        BreadcrumbsComponent
     ],
     imports: [
         RouterModule,
@@ -23,8 +20,7 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     exports: [
         HeaderComponent,
         SidebarComponent,
-        BreadcrumbsComponent,
-        NopagefoundComponent
+        BreadcrumbsComponent
     ],
 })
 
