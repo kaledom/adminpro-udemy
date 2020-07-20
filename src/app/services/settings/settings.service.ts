@@ -6,46 +6,86 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SettingsService {
 
-  ajustes: Ajustes = {
-    temaUrl: 'assets/css/colors/default-dark.css',
-    tema: 'default-dark'
-  }
+  private linkTheme = document.querySelector('#theme');
+
+  // ajustes: Ajustes = {
+  //   temaUrl: 'assets/css/colors/default-dark.css',
+  //   tema: 'default-dark'
+  // }
 
   constructor( @Inject(DOCUMENT) private _document, ) {
-    this.cargarAjustes();
+
+    // Nuevo
+    const url = localStorage.getItem('theme') || './assets/css/colors/purple-dark.css';
+    this.linkTheme.setAttribute('href', url);
+
+    // Antiguo
+    // this.cargarAjustes();
   }
 
-  guardarAjustes() {
-    localStorage.setItem('ajustes', JSON.stringify(this.ajustes));
-    // console.log('Guardando en LocalStorage');
-  }
+  // NUEVO
+  changeTheme( theme: string ) {
 
-  cargarAjustes() {
-    if ( localStorage.getItem('ajustes') ) {
-      this.ajustes = JSON.parse(localStorage.getItem('ajustes'));
-      // console.log('Cargando de LocalStorage');
-      this.aplicarAjustes( this.ajustes.tema );
-    } else {
-      // console.log('Usando valores por defecto');
-      this.aplicarAjustes( this.ajustes.tema );
-    }
-  }
+    const url = `./assets/css/colors/${ theme }.css`;
 
-  aplicarAjustes( tema: string ) {
+    this.linkTheme.setAttribute('href', url);
+    localStorage.setItem('theme', url);
 
-    let url = `assets/css/colors/${tema}.css`
-    this._document.getElementById('tema').setAttribute('href', url);
-
-    this.ajustes.tema = tema;
-    this.ajustes.temaUrl = url;
-
-    this.guardarAjustes();
+    this.checkCurrentTheme();
 
   }
+
+  checkCurrentTheme() {
+
+    const links = document.querySelectorAll('.selector');
+
+    links.forEach( elem => {
+
+      elem.classList.remove('working');
+      const btnTheme = elem.getAttribute('data-theme');
+      const btnThemeUrl = `./assets/css/colors/${ btnTheme }.css`;
+      const currentThemeUrl = this.linkTheme.getAttribute('href');
+
+      if (btnThemeUrl === currentThemeUrl) {
+        elem.classList.add('working');
+      }
+
+    });
+
+  }
+
+//   // ANTIGUO
+//   guardarAjustes() {
+//     localStorage.setItem('ajustes', JSON.stringify(this.ajustes));
+//     // console.log('Guardando en LocalStorage');
+//   }
+
+//   cargarAjustes() {
+//     if ( localStorage.getItem('ajustes') ) {
+//       this.ajustes = JSON.parse(localStorage.getItem('ajustes'));
+//       // console.log('Cargando de LocalStorage');
+//       this.aplicarAjustes( this.ajustes.tema );
+//     } else {
+//       // console.log('Usando valores por defecto');
+//       this.aplicarAjustes( this.ajustes.tema );
+//     }
+//   }
+
+//   aplicarAjustes( tema: string ) {
+
+//     let url = `assets/css/colors/${tema}.css`
+//     this._document.getElementById('theme').setAttribute('href', url);
+
+//     this.ajustes.tema = tema;
+//     this.ajustes.temaUrl = url;
+
+//     this.guardarAjustes();
+
+//   }
 
 }
 
-interface Ajustes {
-  temaUrl: string;
-  tema: string;
-}
+// interface Ajustes {
+//   temaUrl: string;
+//   tema: string;
+// }

@@ -13,12 +13,12 @@ export class LoginComponent implements OnInit {
   constructor( public router: Router ) { }
 
   ngOnInit(): void {
-    init_plugins();
+    //init_plugins();
   }
 
   ingresar() {
     console.log('Ingresando');
-    this.router.navigate(['/dashboard']);
+    this.router.navigateByUrl('/');
   }
 
 }

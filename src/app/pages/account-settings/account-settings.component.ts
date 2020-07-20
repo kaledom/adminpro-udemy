@@ -11,36 +11,51 @@ import { SettingsService } from '../../services/service.index';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor( public _ajustes: SettingsService ) {}
+
+  constructor( private settingsService: SettingsService ) {}
 
   ngOnInit(): void {
-    this.colocarClaseSeleccionada();
+    // NUEVO
+    this.settingsService.checkCurrentTheme();
+    // ANTIGUO
+    // this.colocarClaseSeleccionada();
   }
 
-  cambiarColor (tema:string, link: any) {
-    this.aplicarClaseSeleccionada( link );
+  // NUEVO
+  changeTheme( theme: string ) {
 
-    this._ajustes.aplicarAjustes( tema );
+    this.settingsService.changeTheme( theme );
+
   }
 
-  aplicarClaseSeleccionada ( link: any ) {
-    let selectores: any = document.getElementsByClassName('selector');
-    for ( let ref of selectores  ) {
-      ref.classList.remove('working');
-    }
-    link.classList.add('working');
-  }
 
-  colocarClaseSeleccionada() {
-    let selectores: any = document.getElementsByClassName('selector');
-    let tema = this._ajustes.ajustes.tema;
 
-    for ( let ref of selectores  ) {
-      if ( ref.getAttribute('data-theme') === tema) {
-        ref.classList.add('working');
-        break;
-      }
-    }
-  }
+  // // ANTIGUO
+
+  // cambiarColor(tema:string, link: any) {
+  //   this.aplicarClaseSeleccionada( link );
+
+  //   this._ajustes.aplicarAjustes( tema );
+  // }
+
+  // aplicarClaseSeleccionada( link: any ) {
+  //   let selectores: any = document.getElementsByClassName('selector');
+  //   for ( let ref of selectores  ) {
+  //     ref.classList.remove('working');
+  //   }
+  //   link.classList.add('working');
+  // }
+
+  // colocarClaseSeleccionada() {
+  //   let selectores: any = document.getElementsByClassName('selector');
+  //   let tema = this._ajustes.ajustes.tema;
+
+  //   for ( let ref of selectores  ) {
+  //     if ( ref.getAttribute('data-theme') === tema) {
+  //       ref.classList.add('working');
+  //       break;
+  //     }
+  //   }
+  // }
 
 }

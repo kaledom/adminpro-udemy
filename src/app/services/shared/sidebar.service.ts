@@ -7,28 +7,28 @@ export class SidebarService {
 
   menu: any = [
     {
-      titulo: 'Principal',
+      titulo: 'DashBoard!!!',
       icono: 'mdi mdi-gauge',
       submenu: [
           {
-            titulo: 'Dashboard',
-            url: '/dashboard'
+            titulo: 'Main',
+            url: '/'
           },
           {
             titulo: 'ProgressBar',
-            url: '/progress'
+            url: 'progress'
           },
           {
             titulo: 'Gráficas',
-            url: '/graficas1'
+            url: 'graficas1'
           },
           {
             titulo: 'Promesas',
-            url: '/promesas'
+            url: 'promesas'
           },
           {
             titulo: 'Rxjs',
-            url: '/rxjs'
+            url: 'rxjs'
           }
       ]
     }
